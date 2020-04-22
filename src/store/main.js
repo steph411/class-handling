@@ -5,77 +5,78 @@ import { of } from "rxjs";
 
 import constants from "./constants.js";
 
+// just to see buddy in action
 const initialStudents = [
   {
     id: 1,
     nom: "etaba andela",
     prenoms: "lionel stephane",
     age: 26,
-    moyenne: 16.5
+    moyenne: 16.5,
   },
   {
     id: 2,
     nom: "Marjory",
     prenoms: " Okuneva",
     age: 17,
-    moyenne: 12.5
+    moyenne: 12.5,
   },
   {
     id: 3,
     nom: "Aric ",
     prenoms: "Macejkovic",
     age: 22,
-    moyenne: 11
+    moyenne: 11,
   },
   {
     id: 4,
     nom: "etaba andela",
     prenoms: "lionel stephane",
     age: 26,
-    moyenne: 16.5
+    moyenne: 16.5,
   },
   {
     id: 5,
     nom: "shields",
     prenoms: "Jena",
     age: 18,
-    moyenne: 15.5
+    moyenne: 15.5,
   },
   {
     id: 6,
     nom: "Harman Lima",
     prenoms: "Roberto",
     age: 28,
-    moyenne: 13.5
+    moyenne: 13.5,
   },
   {
     id: 7,
     nom: "Ledner",
     prenoms: "Garrison",
     age: 16,
-    moyenne: 15.5
+    moyenne: 15.5,
   },
   {
     id: 8,
     nom: "Stanton",
     prenoms: "Ebba",
     age: 14,
-    moyenne: 16.5
+    moyenne: 16.5,
   },
   {
     id: 9,
     nom: "Collier",
     prenoms: "Bud",
     age: 120,
-    moyenne: 12.5
+    moyenne: 12.5,
   },
   {
     id: 10,
     nom: "Kunze",
     prenoms: "Walter",
     age: 15,
-    moyenne: 17.5
-  }
+    moyenne: 17.5,
+  },
 ];
 
 const initialClasses = [
@@ -84,56 +85,56 @@ const initialClasses = [
     nom: "anglais",
     description: "anglais",
     coefficient: 2,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "français",
     description: "français",
     coefficient: 3,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "espagnol",
     description: "espagnol",
     coefficient: 2,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "littérature",
     description: "littérature",
     coefficient: 2,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "physique",
     description: "physique",
     coefficient: 4,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "chimie",
     description: "chimie",
     coefficient: 3,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "informatique",
     description: "informatique",
     coefficient: 2,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "philosophie",
     description: "philosophie",
     coefficient: 3,
-    professeur: "prof"
+    professeur: "prof",
   },
   {
     nom: "SVT",
     description: "sciences naturelles",
     coefficient: 5,
-    professeur: "prof"
-  }
+    professeur: "prof",
+  },
 ];
 
 export const students = writable([]);
@@ -157,7 +158,7 @@ export const alertTitle = writable("Notification");
 export const studentsStore = {
   subscribe: students.subscribe,
 
-  add: async data => {
+  add: async (data) => {
     loading.set(true);
     const docRef = await database
       .collection(constants.STUDENTS_COLLECTION)
@@ -165,13 +166,13 @@ export const studentsStore = {
     const snapShot = await docRef.get();
     console.log({ added: snapShot.data() });
     loading.set(false);
-    students.update(old => {
+    students.update((old) => {
       return [
         ...old,
         {
           ...snapShot.data(),
-          id: snapShot.id
-        }
+          id: snapShot.id,
+        },
       ];
     });
   },
@@ -181,7 +182,7 @@ export const studentsStore = {
     const snapShots = await database
       .collection(constants.STUDENTS_COLLECTION)
       .get();
-    const docs = snapShots.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const docs = snapShots.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     // console.log(docs);
     students.set(docs);
     loading.set(false);
@@ -199,15 +200,15 @@ export const studentsStore = {
     alertMessage.set("notes updated");
   },
 
-  delete: async id => {
+  delete: async (id) => {
     console.log(deleting);
-  }
+  },
 };
 
 export const classesStore = {
   subscribe: classes.subscribe,
 
-  add: async data => {
+  add: async (data) => {
     loading.set(true);
     console.log(`adding ${element.nom}`);
     const docRef = await database
@@ -217,13 +218,13 @@ export const classesStore = {
     const snapShot = await docRef.get();
     console.log({ added: snapShot.data() });
     loading.set(false);
-    classes.update(old => {
+    classes.update((old) => {
       return [
         ...old,
         {
           ...snapShot.data(),
-          id: snapShot.id
-        }
+          id: snapShot.id,
+        },
       ];
     });
   },
@@ -233,7 +234,7 @@ export const classesStore = {
     const snapShots = await database
       .collection(constants.CLASSES_COLLECTION)
       .get();
-    const docs = snapShots.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+    const docs = snapShots.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     // console.log(docs);
     classes.set(docs);
     // loading.set(false);
@@ -248,7 +249,7 @@ export const classesStore = {
     loading.set(false);
   },
 
-  delete: async id => {
+  delete: async (id) => {
     console.log(deleting);
-  }
+  },
 };
