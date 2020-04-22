@@ -15,5 +15,9 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: firebase-deploy --token "1//038_ww7BbKuKRCgYIARAAGAMSNwF-L9IrJado7H3cO8mRLAuy6vABVsYcoBhZrCDDM3iMyptUQnTQiFgZAJkvANSiAtxBpb5snD4"
+      - uses: w9jds/firebase-action@master
+        with:
+          args: deploy
+        env:
+          FIREBASE_TOKEN: ${{secrets.FIREBASE_TOKEN}}
       - run: echo "successfull deployment!!!!!"
