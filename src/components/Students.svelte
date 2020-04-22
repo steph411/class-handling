@@ -47,7 +47,7 @@
 
 <div class="p-2 border-r-2 border-gray-500">
 
-  <h2 class="p-3 text-xl text-center text-gray-700 ">Students</h2>
+  <h2 class="p-3 text-xl text-center text-gray-700 ">Eleves</h2>
   <Rule />
   <Input id="search-students" onChange={handleSearch} />
   <Rule />
