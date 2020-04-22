@@ -43,7 +43,7 @@
 
 <div class="p-2 border-r-2 border-gray-500 border-solid">
 
-  <h2 class="p-3 text-xl text-center text-gray-700 capitalize">classes</h2>
+  <h2 class="p-3 text-xl text-center text-gray-700 capitalize">Matieres</h2>
   <Rule />
   <input
     class="block w-full px-4 py-2 my-2 leading-normal bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none focus:shadow-outline"
