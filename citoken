@@ -1,0 +1,12 @@
+
+Visit this URL on this device to log in:
+[1m[4mhttps://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=964272888&redirect_uri=http%3A%2F%2Flocalhost%3A9005[24m[22m
+
+Waiting for authentication...
+
+[1m[32m✔ [39m[22m Success! Use this token to login on a CI server:
+
+[1m1//03lPoAdzx7kZ3CgYIARAAGAMSNwF-L9Ir7bi8SBh0HcRqEdbgkH45vf_018uoiFOHQfBpzQ3Kd-aZfOnq2NmW3b9R0nSRHzjz78w[22m
+
+Example: firebase deploy --token "$FIREBASE_TOKEN"
+
